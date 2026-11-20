@@ -188,7 +188,7 @@ main:focus {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 59%;
+  object-position: center 30%;
 }
 .hero-shade {
   position: absolute;
@@ -235,6 +235,22 @@ main:focus {
 }
 .hero-content .button > svg:last-child {
   margin-left: 7px;
+}
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+}
+.hero-directions {
+  color: #f2cd81;
+  border-color: #f2cd8180;
+  background: #09151e99;
+}
+.hero-directions:hover {
+  background: #11212b;
 }
 .hero-note {
   color: #ffffffa3;
@@ -501,7 +517,7 @@ main:focus {
 .gallery-track {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% - 48px) / 4);
+  grid-auto-columns: calc((100% - 16px) / 2);
   gap: 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -523,7 +539,7 @@ main:focus {
 }
 .gallery-photo img {
   width: 100%;
-  height: 173px;
+  height: 310px;
   object-fit: cover;
   transition: transform 0.3s;
 }
@@ -617,6 +633,103 @@ main:focus {
   font-size: 12px;
   color: #8d5e24;
   margin-top: 16px;
+}
+
+/* Location */
+.location-section {
+  padding-block: 72px;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+}
+.location-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: 60px;
+}
+.location-copy .eyebrow {
+  font-size: 10px;
+  letter-spacing: 2.3px;
+  margin-bottom: 22px;
+}
+.location-copy h2 {
+  font-size: clamp(36px, 3.8vw, 49px);
+  font-weight: 500;
+  letter-spacing: -1.6px;
+  line-height: 1.2;
+  max-width: 430px;
+}
+.location-copy h2 em {
+  display: block;
+  font-weight: 500;
+  color: #8d622d;
+}
+.location-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-block: 30px 22px;
+}
+.location-address > svg {
+  color: #a87836;
+  margin-top: 3px;
+}
+.location-address h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+.location-address p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.location-description {
+  max-width: 370px;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+.location-map {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: #eae5dc;
+}
+.location-map iframe {
+  display: block;
+  width: 100%;
+  height: 430px;
+  border: 0;
+}
+.location-map-caption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  background: #fffcf8;
+  transition: background 0.2s;
+}
+.location-map-caption:hover {
+  background: #f3ede3;
+}
+.location-map-caption > svg:first-child {
+  color: #a87836;
+}
+.location-map-caption > svg:last-child {
+  margin-left: auto;
+}
+.location-map-caption small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.location-map-caption strong {
+  font-size: 15px;
+  font-weight: 500;
 }
 
 /* Contact and footer */
@@ -1225,7 +1338,7 @@ main:focus {
     padding-top: 70px;
   }
   .hero-background {
-    object-position: center 56%;
+    object-position: center 30%;
   }
 }
 
@@ -1325,6 +1438,23 @@ main:focus {
 }
 
 @media (max-width: 800px) {
+  .location-section {
+    padding-block: 48px;
+  }
+  .location-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .location-copy h2 {
+    max-width: 480px;
+    font-size: 40px;
+  }
+  .location-description {
+    max-width: 520px;
+  }
+  .location-map iframe {
+    height: 380px;
+  }
   .header-inner {
     min-height: 76px;
   }
@@ -1431,7 +1561,10 @@ main:focus {
     height: 27px;
   }
   .gallery-track {
-    grid-auto-columns: calc((100% - 32px) / 3);
+    grid-auto-columns: calc((100% - 16px) / 2);
+  }
+  .gallery-photo img {
+    height: 260px;
   }
   .reservation-inner {
     flex-wrap: wrap;
@@ -1489,6 +1622,39 @@ main:focus {
 }
 
 @media (max-width: 600px) {
+  .location-section {
+    padding-block: 36px;
+  }
+  .location-copy .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.8px;
+    margin-bottom: 17px;
+  }
+  .location-copy h2 {
+    font-size: 35px;
+    letter-spacing: -1px;
+  }
+  .location-address {
+    margin-block: 24px 18px;
+    gap: 12px;
+  }
+  .location-address p,
+  .location-description {
+    font-size: 13px;
+  }
+  .location-map iframe {
+    height: 340px;
+  }
+  .location-map-caption {
+    padding: 17px 16px;
+    gap: 10px;
+  }
+  .location-map-caption small {
+    font-size: 10px;
+  }
+  .location-map-caption strong {
+    font-size: 14px;
+  }
   .container {
     width: calc(100% - 40px);
   }
@@ -1518,7 +1684,7 @@ main:focus {
     margin-right: -7px;
   }
   .hero-background {
-    object-position: 58% center;
+    object-position: center;
   }
   .hero-shade {
     background:
@@ -1789,11 +1955,11 @@ main:focus {
     font-size: 26px;
   }
   .gallery-track {
-    gap: 9px;
-    grid-auto-columns: calc((100% - 18px) / 3);
+    gap: 12px;
+    grid-auto-columns: 100%;
   }
   .gallery-photo img {
-    height: 120px;
+    height: clamp(230px, 70vw, 340px);
   }
   .gallery-photo {
     border-radius: 8px;

@@ -1,5 +1,7 @@
 # Imagens utilizadas
 
+A imagem hotel-banner.png é a foto original anexada pelo usuário para o banner principal, preservada sem alterações.
+
 As fotos da fachada, recepção, restaurante, estacionamento, lago e imagens antigas de quartos são provenientes do site do Flip Palace Hotel:
 
 https://flippalacehotel.com.br/buritialegrehotel/nosso-hotel/

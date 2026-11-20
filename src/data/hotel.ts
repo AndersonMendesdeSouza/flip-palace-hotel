@@ -6,11 +6,15 @@ export const hotel = {
   phone: '(64) 3444-1836',
   phoneLink: 'tel:+556434441836',
   whatsapp: '556434441836',
-  address: 'Av. Francisco Olímpio de Paiva, 650',
+  address: 'Rua Francisco Olímpio de Paiva, 605 – Centro',
   city: 'Buriti Alegre – GO',
   checkIn: '14h',
   checkOut: '12h',
-  mapUrl: 'https://www.google.com/maps/search/?api=1&query=Flip+Palace+Hotel+Buriti+Alegre+GO',
+  mapUrl:
+    'https://www.google.com/maps/search/?api=1&query=Flip+Palace+Hotel+Buriti+Alegre+GO&query_place_id=ChIJm9rRxNkhoZQRm181Cpt0fck',
+  mapEmbedUrl: 'https://maps.google.com/maps?cid=14518888982952370075&z=16&output=embed&hl=pt-BR',
+  directionsUrl:
+    'https://www.google.com/maps/dir/?api=1&destination=Flip+Palace+Hotel+Buriti+Alegre+GO&destination_place_id=ChIJm9rRxNkhoZQRm181Cpt0fck',
 }
 
 export function whatsappUrl(

@@ -30,12 +30,16 @@ export default function Home() {
   function moveGallery(direction: number) {
     const track = galleryRef.current
     if (!track) return
+    const photo = track.firstElementChild as HTMLElement | null
+    if (!photo) return
+    const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0
+    const step = photo.offsetWidth + gap
     if (direction > 0 && track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
       track.scrollTo({ left: 0, behavior: 'smooth' })
     } else if (direction < 0 && track.scrollLeft <= 5) {
       track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' })
     } else {
-      track.scrollBy({ left: direction * track.clientWidth * 0.8, behavior: 'smooth' })
+      track.scrollBy({ left: direction * step, behavior: 'smooth' })
     }
   }
 
@@ -44,8 +48,8 @@ export default function Home() {
       <section id="inicio" className="home-hero">
         <img
           className="hero-background"
-          src="/images/hotel-exterior.jpg"
-          alt="Fachada do Flip Palace Hotel"
+          src="/images/hotel-banner.png"
+          alt="Fachada do Flip Palace Hotel com letreiro amarelo e entrada azul"
           fetchPriority="high"
         />
         <div className="hero-shade" />
@@ -64,7 +68,19 @@ export default function Home() {
             Conforto, praticidade e a melhor
             <br className="desktop-break" /> hospedagem da região.
           </p>
-          <WhatsAppButton />
+          <div className="hero-actions">
+            <WhatsAppButton />
+            <a
+              className="button hero-directions"
+              href={hotel.directionsUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icon name="pin" size={20} />
+              Como chegar
+              <Icon name="arrow" size={18} />
+            </a>
+          </div>
           <p className="hero-note">Sinta-se em casa, mesmo longe de casa.</p>
         </div>
         <div className="hero-amenities">
@@ -323,6 +339,63 @@ export default function Home() {
             >
               Explorar a região
               <Icon name="arrow" size={16} />
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="localizacao" className="location-section" aria-labelledby="location-heading">
+        <div className="container location-layout">
+          <div className="location-copy">
+            <p className="eyebrow">O CAMINHO PARA UMA BOA ESTADIA</p>
+            <h2 id="location-heading">
+              Seu próximo descanso <em>é aqui.</em>
+            </h2>
+            <div className="location-address">
+              <Icon name="pin" size={28} />
+              <div>
+                <h3>{hotel.name}</h3>
+                <p>{hotel.address}</p>
+                <p>{hotel.city}</p>
+              </div>
+            </div>
+            <p className="location-description">
+              Abra o mapa para consultar o trajeto até o hotel. Se precisar de ajuda para chegar,
+              nossa equipe está à disposição.
+            </p>
+            <a
+              className="button button-gold"
+              href={hotel.directionsUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icon name="pin" size={19} />
+              Traçar minha rota
+              <Icon name="arrow" size={18} />
+            </a>
+          </div>
+          <div className="location-map">
+            <iframe
+              src={hotel.mapEmbedUrl}
+              title="Localização do Flip Palace Hotel em Buriti Alegre, Goiás"
+              width="640"
+              height="430"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <a
+              className="location-map-caption"
+              href={hotel.mapUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Abrir a localização do Flip Palace Hotel no Google Maps"
+            >
+              <Icon name="pin" size={24} />
+              <span>
+                <small>Esperamos por você em Buriti Alegre</small>
+                <strong>{hotel.name}</strong>
+              </span>
+              <Icon name="arrow" size={20} />
             </a>
           </div>
         </div>
